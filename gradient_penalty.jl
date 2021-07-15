@@ -1,5 +1,5 @@
 using Flux
-using Zygote:jacobian
+using Zygote
 
 function gradient_penalty(dscr,real,fake)
 
@@ -7,7 +7,10 @@ function gradient_penalty(dscr,real,fake)
     alpha = rand(1,1,1,B)
     alpha = repeat(alpha,H,W,C,1)
     interpolated_image = real .* alpha + fake .* (1 .- alpha)
-    gp = jacobian(()->dscr(interpolated_image),params(interpolated_image))
+    gp = gradient(params[interpolated_image]) do 
+        
+        
+    end
     
     return gp[interpolated_image]
 end

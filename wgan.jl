@@ -14,8 +14,8 @@ CUDA.allowscalar(false)
 @with_kw struct HyperParams
     batch_size::Int = 128
     latent_dim::Int = 100
-    epochs::Int = 20
-    verbose_freq::Int = 1000
+    epochs::Int = 50
+    verbose_freq::Int = 2000
     output_x::Int = 6
     output_y::Int = 6
     lr::Float64 = 5e-5
